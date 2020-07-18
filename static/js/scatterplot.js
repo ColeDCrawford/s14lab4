@@ -199,7 +199,7 @@ class Scatterplot {
                             .duration(200)
                             .style("opacity", 0);
                             d3.select(this)
-                                .style("fill", "initial"); // back to using CSS
+                                .style("fill", "#955196");
                         });
                 }),
             update => update,

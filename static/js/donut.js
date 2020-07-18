@@ -150,7 +150,7 @@ class Donut {
                             vis.displayLang.text('Count');
                             d3.select(this)
                                 .style('stroke-width', 'initial')
-                                .style('opacity', 'initial');
+                                .style('opacity', .7);
                         })
                 }),
                 update => update,

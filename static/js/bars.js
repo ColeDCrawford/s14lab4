@@ -74,7 +74,6 @@ class Bars {
             .style('transform', `rotate(-90deg) translate(-${vis.gH / 2}px, -30px)`)
             .text('Totals');
 
-
         // Now wrangle
         vis.wrangle();
     }
@@ -135,12 +134,44 @@ class Bars {
                         g.style('transform', `translate(${i * w}px, ${h}px)`);
 
                         // Append rect
-                        g.append('rect')
+                        const rect = g.append('rect')
                             .attr('width', Math.floor(w * 0.8))
                             .attr('height', vis.gH - h)
                             .attr('x', Math.floor(w * 0.1))
-                            .attr('fill', 'rgba(0, 0, 128, 1)');
-
+                            .attr('class', 'bar')
+                            .on('mouseover', function(d){
+                                d3.select(this)
+                                    .transition()
+                                        .duration(100)
+                                        .style("fill", "#ffa600"); // temp
+                            })
+                            .on("mouseout", function(d){
+                                d3.select(this)
+                                    .transition()
+                                        .duration(100)
+                                        .style("fill", '#955196');
+                            });
+                        g.append("text")
+                            .attr('class', 'barLabel label')
+                            .style('transform', `translate(${Math.floor(w * 0.5)}px, -5px)`)
+                            .text(function(d){
+                                return d.length;
+                            })
+                            .style('opacity', 0);
+                        g.on("mouseover", function(d){
+                            const t = d3.select(this)
+                                .select(".barLabel");
+                            t.transition()
+                                .duration(200)
+                                .style("opacity", 1);
+                        });
+                        g.on("mouseout", function(d){
+                            const t = d3.select(this)
+                                .select(".barLabel");
+                            t.transition()
+                                .duration(200)
+                                .style("opacity", 0);
+                        })
                     })
             );
 

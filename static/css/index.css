@@ -56,14 +56,17 @@ h1 {
     fill: black;
     font-size: 18px;
 }
-
+/** Added **/
+.bar {
+    fill: #955196;
+}
 .details {
     position: absolute;
     text-align: center;
     width: 175px;
     padding: 2px;
     font: 12px sans-serif;
-    background: lightsteelblue;
+    background: #ffa600;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
@@ -73,7 +76,7 @@ h1 {
     font-weight: bold;
 }
 .point {
-    fill: #003f5c;
+    fill: #955196;
 }
 .arc {
     stroke: #000000;
