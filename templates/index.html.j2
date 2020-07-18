@@ -1,0 +1,26 @@
+{% extends "layout.html.j2" %}
+
+{% block styles %}
+    <link href="{{ url_for('static', filename='./css/index.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="{{ url_for('static', filename='./js/d3.v5.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/bars.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/scatterplot.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/donut.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/main.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <header>
+        <h1>D3 from the DB</h1>
+        <h2 id="users">Users: </h2>
+    </header>
+    <div class="slide">
+        <div id="vis1" class="vis"></div>
+        <div id="vis2" class="vis"></div>
+        <div id="vis3" class="vis"></div>
+    </div>
+{% endblock %}
